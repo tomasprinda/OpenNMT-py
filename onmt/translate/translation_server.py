@@ -100,6 +100,7 @@ class TranslationServer(object):
             opt = conf["opt"]
             opt["models"] = conf["models"]
             self.preload_model(opt, model_id=model_id, **kwargs)
+            print(self.models)
 
     def clone_model(self, model_id, opt, timeout=-1):
         """Clone a model `model_id`.
