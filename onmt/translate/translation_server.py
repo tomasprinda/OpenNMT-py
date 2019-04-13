@@ -524,6 +524,7 @@ class ServerModel(object):
         elif self.tokenizer_opt["type"] == "pyonmttok":
             tok, _ = self.tokenizer.tokenize(sequence)
             tok = " ".join(tok)
+
         return tok
 
     def maybe_detokenize(self, sequence):
@@ -532,8 +533,8 @@ class ServerModel(object):
         Same args/returns as :func:`tokenize()`
         """
 
-        if self.tokenizer_opt is not None and ''.join(sequence.split()) != '':
-            return self.detokenize(sequence)
+        # if self.tokenizer_opt is not None and ''.join(sequence.split()) != '':
+        #     return self.detokenize(sequence)
         return sequence
 
     def detokenize(self, sequence):
@@ -541,7 +542,6 @@ class ServerModel(object):
 
         Same args/returns as :func:`tokenize()`
         """
-
         if self.tokenizer is None:
             raise ValueError("No tokenizer loaded")
 
